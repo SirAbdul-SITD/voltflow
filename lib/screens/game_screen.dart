@@ -58,6 +58,24 @@ class _GameScreenState extends State<GameScreen>
               _hud(st),
               const SizedBox(height: 4),
               _progressRow(st),
+              if (kRequireFullFill &&
+                  st.allWiresConnected &&
+                  !st.isComplete &&
+                  st.coveredCells < st.level.size * st.level.size)
+                Padding(
+                  padding: const EdgeInsets.only(top: 8),
+                  child: Container(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: 16, vertical: 8),
+                    decoration: BoxDecoration(
+                      color: kStarOn.withOpacity(0.10),
+                      borderRadius: BorderRadius.circular(20),
+                      border: Border.all(color: kStarOn.withOpacity(0.6)),
+                    ),
+                    child: Text('ALL WIRES LINKED — NOW FILL EVERY CELL!',
+                        style: techno(10, color: kStarOn, letterSpacing: 2)),
+                  ),
+                ),
               Expanded(child: Center(child: _FlowBoard(state: st))),
               _bottomBar(st),
               const SizedBox(height: 12),
@@ -347,6 +365,31 @@ class _FlowPainter extends CustomPainter {
         canvas.drawRect(
             Rect.fromLTWH(c * cell + 1, r * cell + 1, cell - 2, cell - 2),
             tint);
+      }
+    }
+
+    // When every wire is linked but cells remain empty, spotlight them
+    if (kRequireFullFill && st.allWiresConnected && !st.isComplete) {
+      final covered = <int>{};
+      for (final p in st.paths.values) {
+        covered.addAll(p);
+      }
+      final warnFill = Paint()..color = kStarOn.withOpacity(0.10);
+      final warnBorder = Paint()
+        ..color = kStarOn.withOpacity(0.75)
+        ..style = PaintingStyle.stroke
+        ..strokeWidth = 2;
+      for (int idx = 0; idx < grid * grid; idx++) {
+        if (covered.contains(idx)) continue;
+        final r = idx ~/ grid, c = idx % grid;
+        final rect = Rect.fromLTWH(
+            c * cell + 3, r * cell + 3, cell - 6, cell - 6);
+        canvas.drawRRect(
+            RRect.fromRectAndRadius(rect, const Radius.circular(5)),
+            warnFill);
+        canvas.drawRRect(
+            RRect.fromRectAndRadius(rect, const Radius.circular(5)),
+            warnBorder);
       }
     }
 

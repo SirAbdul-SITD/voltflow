@@ -1,6 +1,7 @@
 // lib/game/flow_state.dart
 import 'package:flutter/material.dart';
 import 'flow_level.dart';
+import '../utils/constants.dart';
 import '../utils/preferences.dart';
 import '../utils/audio_manager.dart';
 
@@ -126,10 +127,13 @@ class FlowState extends ChangeNotifier {
     notifyListeners();
   }
 
+  bool get allWiresConnected =>
+      List.generate(level.pairCount, (c) => c).every(isColorConnected);
+
   void _checkComplete() {
-    final allConnected = List.generate(level.pairCount, (c) => c)
-        .every(isColorConnected);
-    final fullCover = coveredCells == level.size * level.size;
+    final allConnected = allWiresConnected;
+    final fullCover =
+        !kRequireFullFill || coveredCells == level.size * level.size;
     if (allConnected && fullCover && !isComplete) {
       isComplete = true;
       stars = _calcStars();

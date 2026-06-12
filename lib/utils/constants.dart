@@ -42,3 +42,7 @@ TextStyle techno(double size,
       fontWeight: weight,
       letterSpacing: letterSpacing,
     );
+
+/// If true (classic Flow rules) the player must also cover 100% of the
+/// board. Set to false to complete a level as soon as all wires link.
+const bool kRequireFullFill = true;
