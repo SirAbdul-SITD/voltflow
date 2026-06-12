@@ -1,0 +1,42 @@
+═══════════════════════════════════════════
+VOLTFLOW — PLAY STORE LISTING
+com.murgames.voltflow
+═══════════════════════════════════════════
+
+APP TITLE (max 50 chars):
+VoltFlow: Wire Connect Puzzle
+
+SHORT DESCRIPTION (max 80 chars):
+Draw glowing wires, link every power node and fill the board. 150 levels!
+
+FULL DESCRIPTION:
+⚡ DRAW. LINK. ENERGIZE. ⚡
+
+VoltFlow is a beautifully minimal wire-drawing puzzle. Drag your finger to draw glowing neon wires between matching power nodes — but be careful: wires can never cross, and every single cell of the board must be energized to win!
+
+🔌 HOW TO PLAY
+• Touch a power node and drag to draw its wire
+• Connect it to the matching colored node
+• Wires cannot cross each other
+• Fill 100% of the board to complete the level
+
+✨ FEATURES
+• 150 handcrafted levels across 3 difficulties
+• Easy 5×5, Medium 6×6 and Hard 7×7 boards
+• Smooth one-finger drawing controls
+• Stunning neon glow visuals
+• Relaxing ambient soundtrack
+• 3-star rating system — solve in fewer moves for more stars
+• Haptic feedback
+• Works fully offline — no internet needed
+• No ads, no in-app purchases, no data collection
+
+🧠 EASY TO LEARN, HARD TO MASTER
+Early levels teach you the flow. Later boards demand real planning — one wrong wire and the board locks up. Can you 3-star all 150?
+
+Download VoltFlow and light up the grid! ⚡
+
+CATEGORY: Games > Puzzle
+CONTENT RATING: Everyone
+PRICE: Free
+TAGS: flow, wire, connect, puzzle, logic, neon, brain, link, dots, lines
